@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPost } from '../actions';
+import { fetchPosts } from '../actions';
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
 
 class PostsIndex extends Component {
   componentDidMount() {
-    this.props.fetchPost();
+    this.props.fetchPosts();
   }
 
   renderPosts() {
@@ -41,4 +41,4 @@ function mapStateToProps(state) {
 }
 // { fetchPost } inside connect is identical to creating a seperate
 // mapDispatchToProps() to connect the action creator
-export default connect(mapStateToProps, { fetchPost })( PostsIndex );
+export default connect(mapStateToProps, { fetchPosts })( PostsIndex );
