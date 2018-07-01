@@ -7,13 +7,15 @@ export default function(state = {}, action) {
   switch (action.type) {
   case FETCH_POSTS:
     // mapKeys() takes array as argument, and a key value to map into object
-    return _.mapKeys(post, 'id');
+    return _.mapKeys(action.payload.data, 'id');
 
   case FETCH_POST:
     // const post = action.payload.data;
     // const newState = { ...state, };
     // newState[post.id] = post;
     // return newState;
+
+    // Identical to above. Also, []
     return { ...state, [action.payload.data.id]: action.payload.data };
 
   default:
